@@ -9,9 +9,9 @@ document.getElementById('coverImg').addEventListener('click', async () => {
 
 
 async function coverImage() {
-    // const sess = new onnx.InferenceSession();
-    // const modelPath = "model.onnx";
-    // await sess.loadModel(modelPath);  `
+    const sess = new onnx.InferenceSession();
+    const modelPath = "model.onnx";
+    await sess.loadModel(modelPath);  `
 
     let images = document.getElementsByTagName('img');
     for (let img of images) {
@@ -50,7 +50,7 @@ async function coverImage() {
         let ctx = imgCanvas.getContext('2d');
         // ctx.drawImage(img, 0, 0, img.width, img.height);
 
-        // // // Input data preprocessing, depending on your model's requirement. assuming grayscale and normalize
+        // Input data preprocessing, depending on your model's requirement. assuming grayscale and normalize
         let pixels = ctx.getImageData(0, 0, img.width, img.height);
         // let inputData = new Float32Array(pixels.data.length / 4);
         // for (let i = 0; i < pixels.data.length; i += 4) {
@@ -58,10 +58,10 @@ async function coverImage() {
         // }
         const input = new onnx.Tensor(new Float32Array(pixels.data), "float32");
 
-        // // ONNX model execution
-        // const outputMap = sess.run([input]);
-        // const outputData = outputMap.values().next().value.data;  // Use your model's output
-        // const predictions = outputData.data;
-        // const maxPrediction = Math.max(...predictions);
+        // ONNX model execution
+        const outputMap = sess.run([input]);
+        const outputData = outputMap.values().next().value.data;  // Use your model's output
+        const predictions = outputData.data;
+        const maxPrediction = Math.max(...predictions);
     }
 }
