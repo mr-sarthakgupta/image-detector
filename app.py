@@ -17,20 +17,13 @@ transforms = timm.data.create_transform(**data_config, is_training=False)
 @app.route('/predict', methods=['POST'])
 def predict():
     img = request.form.get('image')
-    print(img)
-    # print("image = url" + img)
-    # img =  base64.b64decode(request.get_json()['image'])
-    # print("run")
-    return jsonify({'prediction': 1})
-    # print(img)
-    # # exit()
-    # if img is not None:
-    #     print('meow')
-    #     prediction = model(transforms(img).unsqueeze(0))
-    #     return jsonify({'prediction': int(prediction)})
-    # else:
-    #     print('woof')
-    #     return jsonify({'error': 'bruski.'})
+    if img is not None:
+        print('meow')
+        prediction = model(transforms(img).unsqueeze(0))
+        return jsonify({'prediction': int(prediction)})
+    else:
+        print('woof')
+        return jsonify({'error': 'bruski.'})
 
 if __name__ == '__main__':
     app.run(debug=True)
