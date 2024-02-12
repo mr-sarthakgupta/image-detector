@@ -1,6 +1,6 @@
 This is the attempted code for a chrome extension which passes all images on a given web page through a machine learning model to get an output, in this case the model is mobilenetv2-10.onnx present in this directory
 
-The issues start whenever I start using the onnx things, in this case, it is in popup.js line 44. Maybe this is because I'm not importing or maybe building the package properly, but that's kinda my blind guess.
+The issues start whenever I start using the onnx things, in this case, it is in popup.js line 46. Maybe this is because I'm not importing or maybe building the package properly, but that's kinda my blind guess.
 
 files in use:
 
