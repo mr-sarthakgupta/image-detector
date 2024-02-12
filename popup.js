@@ -35,13 +35,16 @@ async function coverImage() {
       div.style.backgroundColor = 'rgba(0, 0, 255, 1)';
       div.style.zIndex = 1000;
       document.body.appendChild(div);
+      // getting this log statement in the console
       console.log('this is happening')
       // try {
       const options = {
         executionProviders: ['wasm'], 
         graphOptimizationLevel: 'all'
       };
+      // this is where we try to load the model
       const session = ort.InferenceSession.create('./mobilenetv2-10.onnx', options);
+      // not getting this log statement in the console, after this we try to do processing etc but after the above line nothing just works, no statement etc, nothing at all
       console.log('model loaded')
       const dims = [1, 3, 224, 224];
       console.log('dims loaded')
