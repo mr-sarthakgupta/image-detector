@@ -15,10 +15,13 @@
   },
   "web_accessible_resources": [
     {
-      "resources": ["onnx.min.js"],
+      "resources": ["onnx.min.js", "ort.min.js", "model.onnx", "*.wasm"],
       "matches": ["<all_urls>"]
     }],
   "background": {
     "service_worker": "background.js"
+  }, 
+  "content_security_policy": {
+    "sandbox": "sandbox allow-scripts; script-src 'unsafe-eval';" 
   }
 }

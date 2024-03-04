@@ -1,0 +1,14 @@
+{
+  "name": "image-detector",
+  "version": "1.0.0",
+  "description": "This is the attempted code for a chrome extension which passes all images on a given web page through a machine learning model to get an output, in this case the model is mobilenetv2-10.onnx present in this directory",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "onnxruntime-web": "^1.17.1"
+  }
+}
